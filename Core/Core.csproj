@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Aspects\Autofac\" />
+    <Folder Include="CrossCuttingConcerns\Caching\" />
+    <Folder Include="CrossCuttingConcerns\Loging\" />
+    <Folder Include="CrossCuttingConcerns\Validation\FluentValidation\" />
+    <Folder Include="DataAccess\EntityFramework\" />
+    <Folder Include="DependencyResolvers\" />
+    <Folder Include="Dtos\UserOperations\" />
+    <Folder Include="Entities\Concrete\UserOperations\" />
+    <Folder Include="Exceptions\" />
+    <Folder Include="Extensions\" />
+    <Folder Include="RequestOperations\" />
+    <Folder Include="Utilities\Bussiness\" />
+    <Folder Include="Utilities\Constant\" />
+    <Folder Include="Utilities\Helpers\" />
+    <Folder Include="Utilities\Interceptors\" />
+    <Folder Include="Utilities\IoC\" />
+    <Folder Include="Utilities\Messages\" />
+    <Folder Include="Utilities\Security\" />
+    <Folder Include="Utilities\Result\" />
+  </ItemGroup>
+
+</Project>

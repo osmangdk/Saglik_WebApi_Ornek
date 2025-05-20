@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Abstract\ApiManager\Servisler\" />
+    <Folder Include="Abstract\UserOperationsHelper\" />
+    <Folder Include="Concrete\ApiManager\" />
+    <Folder Include="Concrete\EntityFramework\Contexts\" />
+    <Folder Include="Concrete\EntityFramework\Repo\" />
+    <Folder Include="Concrete\UserOperationsHelper\" />
+  </ItemGroup>
+
+</Project>
