@@ -5,7 +5,7 @@ using Core.DataAccess.EntityFramework;
 using DataAccess.Concrete.EntityFramework.Contexts;
 using DataAccess.Models;
 using Microsoft.EntityFrameworkCore;
-using StackExchange.Redis;
+using StackExchange.Redis; 
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,11 +23,16 @@ builder.Services.AddSingleton<IConnectionMultiplexer>(sp =>
     var connectionString = $"{host}:{port}";
     return ConnectionMultiplexer.Connect(connectionString);
 }); 
+builder.Services.AddScoped<HastaneContext>();
 builder.Services.AddDbContext<HastaneContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConn")));
-builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepo<>));
-builder.Services.AddScoped<SaglikManager>();
+ 
 
+builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepo<>));
+builder.Services.AddScoped<GenericRepo<Hastum>>();
+
+builder.Services.AddScoped(typeof(GenericRepo<>));
+builder.Services.AddScoped<SaglikManager>();
 builder.Services.AddControllers();
 var app = builder.Build();
 

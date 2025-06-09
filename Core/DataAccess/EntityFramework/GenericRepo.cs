@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using DataAccess.Concrete.EntityFramework.Contexts;
+using DataAccess.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,12 +12,12 @@ namespace Core.DataAccess.EntityFramework
 {
     public class GenericRepo<T> : IGenericRepository<T> where T : class
     {
-        private readonly DbContext _context;
+        private readonly HastaneContext _context;
         private readonly DbSet<T> _dbSet;
 
-        public GenericRepo(DbContext dbContext)
+        public GenericRepo(HastaneContext dbContext)
         {
-            _context = dbContext;
+            _context = dbContext; 
             _dbSet = _context.Set<T>();
         }
         public async Task AddAsync(T entity)
@@ -35,6 +37,7 @@ namespace Core.DataAccess.EntityFramework
 
         public async Task<T?> GetByIdAsync(object id)
         {
+            
             return await _dbSet.FindAsync(id);
         }
 

@@ -1,5 +1,5 @@
 {
   "ConnectionStrings": {
-    "DefaultConn": "Host=localhost;Database=hastaneyonetim;Username=postgres;Password=123456"
+    "DefaultConn": "Host=localhost;Database=postgres;Username=postgres;Password=123456"
   }
 }

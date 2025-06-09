@@ -43,10 +43,10 @@ namespace Business.Concrete.SaglikManager
             return await _genericRepo.GetByIdAsync(id);
         }
 
-        public Task SaveChangesAsync()
-        {
-            return  _genericRepo.SaveChangesAsync();
-        }
+        //public Task SaveChangesAsync()
+        //{
+        //    return  _genericRepo.SaveChangesAsync(DbContext);
+        //}
 
         public void Update(Hastum entity)
         {

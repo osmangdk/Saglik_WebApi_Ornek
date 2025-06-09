@@ -14,7 +14,7 @@ namespace Core.DataAccess
         Task AddAsync(T entity);
         void Update(T entity);
         void Delete(T entity);
-        Task SaveChangesAsync();
+        //Task SaveChangesAsync();
         Task<IEnumerable<T>> GetAsync(
          Expression<Func<T, bool>>? filter = null,
          Func<IQueryable<T>, IOrderedQueryable<T>>? orderBy = null,

@@ -2,6 +2,7 @@
 using DataAccess.Concrete.EntityFramework.Contexts;
 using DataAccess.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Hosting;
 using StackExchange.Redis;
 using System.Text.Json;
 
@@ -34,12 +35,12 @@ namespace Saglik_WebApi_Ornek.Controllers
             var cachedHasta = await _cache.StringGetAsync(cacheKey);
             if (cachedHasta.HasValue)
             {
-                var hasta = _saglikManager.GetByIdAsync(cachedHasta);
+                var hasta = JsonSerializer.Deserialize<Hastum>(cachedHasta);
                 return Ok(hasta);
             }
 
             // 2. Yoksa veritabanından getir
-            var hastaFromDb = await _db.Hasta.FindAsync(id);
+            var hastaFromDb = await _saglikManager.GetByIdAsync(id);
             if (hastaFromDb == null)
                 return NotFound();
 
